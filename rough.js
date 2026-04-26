@@ -38,22 +38,18 @@
 //   inOrder_traversal(node.right)
 // }
 // inOrder_traversal(five)
-var reverse = function(x) {
-    let rev = 0;
-
-    while (x !== 0) {
-        let digit = x % 10;
-        x = Math.trunc(x / 10);
-        console.log(digit)
-
-        // Check overflow BEFORE multiplying
-        if (rev > (2**31 - 1) / 10 || rev < -(2**31) / 10) {
-            return 0;
+function permutation(arr){
+    let res = []
+    function backtrack(ind,subset){
+        if(ind === arr.length){
+            res.push([...subset])
+            return
         }
-
-        rev = rev * 10 + digit;
+        for(let i = 0;i<arr.length;i++){
+            console.log(i)
+        }
     }
-
-    return rev;
-};
-console.log(reverse(-123))
+    backtrack(0,[])
+    return res
+}
+permutation([1,2,3])
