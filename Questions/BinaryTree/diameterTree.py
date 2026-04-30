@@ -43,6 +43,6 @@ def longestPath(node):
     leftHeight = longestPath(node.left)
     rightHeight = longestPath(node.right)
     longest = max(longest,leftHeight + rightHeight)
-    return 1 + max(leftHeight + rightHeight)
+    return 1 + max(longest,leftHeight + rightHeight)
 longestPath(five)
 print(longest)
