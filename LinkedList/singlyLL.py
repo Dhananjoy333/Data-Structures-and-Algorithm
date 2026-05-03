@@ -26,6 +26,7 @@ class SinglyLL:
                 print(current.val,end=" ") 
                 current = current.next
         print()
+        
     def insert_at(self,val,position):
         new_node = Node(val)
         if position == 0:
@@ -41,6 +42,7 @@ class SinglyLL:
                 count += 1
             prev_node.next = new_node
             new_node.next = current
+            
     def delete(self,val):
         temp = self.head
         if temp.val == val :

@@ -1,21 +1,27 @@
-var rotate = function(nums, k) {
+class Node{
+    constructor(val,next){
+        this.val = null
+        this.next = null
+    }
+}
 
-    let n = nums.length
-    let rotate = k%n 
+class SinglyLL {
+    constructor(){
+        this.head = null
+    }
 
-    function swap(arr,l,r){
-        while(l < r){
-            [arr[l],arr[r]] = [arr[r],arr[l]]
-            l++
-            r--
+    insert(val){
+        const new_node = val
+        if(this.head === null){
+            this.head = new_node
+        }else{
+            let current = this.head
+            while (current.next != null){
+                current = current.next
+            }
+            current.next = new_node
         }
     }
-    swap(nums,0,n-1)
-    console.log(nums)
-    swap(nums,0,rotate-1)
-    console.log(nums)
-    swap(nums,rotate, n-1)
-    
-    return nums
-};
-rotate([1,2,3,4,5,6,7],3)
+
+    traversal()
+}
