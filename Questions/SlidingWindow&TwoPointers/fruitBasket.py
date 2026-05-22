@@ -33,20 +33,22 @@
 #         right += 1
 #     return maxi
 # #-------------------------optimal---------------------
-# def Fbasket(arr):
-#     maxi = 0
-#     my_dict = {}
-#     left = 0
-#     right = 0
-#     n = len(arr)
-#     while right < n:
-#         my_dict[arr[right]] = my_dict.get(arr[right],0) + 1
-#         if len(my_dict)>2:
-#             my_dict[arr[left]] -= 1
-#             if my_dict[arr[left]] == 0:
-#                 del my_dict[arr[left]]
-#             left += 1
-#         if len(my_dict) <= 2:
-#             maxi = max(maxi, right - left +1)
-#         right += 1
-#     return maxi
+def Fbasket(arr):
+    maxi = 0
+    my_dict = {}
+    left = 0
+    right = 0
+    n = len(arr)
+    while right < n:
+        my_dict[arr[right]] = my_dict.get(arr[right],0) + 1
+        if len(my_dict)>2:
+            my_dict[arr[left]] -= 1
+            if my_dict[arr[left]] == 0:
+                del my_dict[arr[left]]
+            left += 1
+        if len(my_dict) <= 2:
+            maxi = max(maxi, right - left +1)
+        right += 1
+    return maxi
+num = [3,3,3,1,2,1,1,2,3,3,4]
+print(Fbasket(num))

@@ -52,7 +52,7 @@ def asteroidCol(arr):
             elif len(stack) == 0 or stack[-1] < 0:
                 stack.append(arr[i])
     return stack
-print(asteroidCol([4,7,1,1,2,-3,-7,17,15,-18,-19]))
+print(asteroidCol([8,-8]))
               
                 
 

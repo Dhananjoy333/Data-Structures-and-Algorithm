@@ -5,7 +5,7 @@ def decimal_to_binary(n):
         binary = str(n % 2) + binary
         n = n // 2
     return binary[::-1]
-#Converting binary to decimal
+#Converting binary to decimal(need to pass string else convert to string inside)
 def binary_to_decimal(b):
     decimal = 0
     for i in range(len(b)):
@@ -19,3 +19,4 @@ def binary_to_decimal(b):
 # In 32 bits that is provided the last bit is the sign bit:
 # 0 to +ve numbers
 # 1 to -ve numbers 
+print(binary_to_decimal('1101'))
