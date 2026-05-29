@@ -62,13 +62,16 @@ Step 2: Compare with parent (2)
     5
 Final Min Heap ✔️
 '''
+
+
 class MaxHeap:
     def __init__(self):
         self.heap = []
 
+    # add element to heap
     def insert(self, val):
         self.heap.append(val)
-        # Start heapifying up from the last index
+        # Start heapify up from the last index
         self._heapify_up(len(self.heap) - 1)
 
     def _heapify_up(self, i):
@@ -78,6 +81,7 @@ class MaxHeap:
             self.heap[i], self.heap[parent_ind] = self.heap[parent_ind], self.heap[i]
             self._heapify_up(parent_ind)
 
+    # return max also remove it from heap
     def extract_max(self):
         if not self.heap:
             return None
@@ -109,6 +113,7 @@ class MaxHeap:
             self.heap[i], self.heap[largest] = self.heap[largest], self.heap[i]
             self._heapify_down(largest)
 
+
 # --- Quick Test ---
 max_heap = MaxHeap()
 values = [15, 30, 8, 10, 40]
@@ -116,10 +121,10 @@ values = [15, 30, 8, 10, 40]
 for v in values:
     max_heap.insert(v)
 
-print("Heap array:", max_heap.heap) 
+print("Heap array:", max_heap.heap)
 # Expected: [40, 30, 15, 8, 10] (or similar valid max heap structure)
 
-print("Extracted Max:", max_heap.extract_max()) # 40
+print("Extracted Max:", max_heap.extract_max())  # 40
 print("Heap after extraction:", max_heap.heap)
 
 
@@ -167,10 +172,11 @@ class MinHeap:
             self.heap[i], self.heap[smallest] = self.heap[smallest], self.heap[i]
             self._heapify_down(smallest)
 
+
 # --- Test ---
 min_heap = MinHeap()
 for v in [40, 10, 30, 8, 15]:
     min_heap.insert(v)
 
-print("Min Heap array:", min_heap.heap) # The smallest (8) will be at index 0
-print("Extracted Min:", min_heap.extract_min()) # 8
+print("Min Heap array:", min_heap.heap)  # The smallest (8) will be at index 0
+print("Extracted Min:", min_heap.extract_min())  # 8

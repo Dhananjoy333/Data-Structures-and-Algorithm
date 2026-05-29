@@ -40,16 +40,34 @@ eight.right = six
 # Time complexity = O(N)
 # Space complexity = O(N) 
 from collections import deque
-def level_order_traversal(node):
+# def level_order_traversal(node):
+#     res = []
+#     queue = deque([])
+#     queue.append(node)
+#     while len(queue) != 0:
+#         e = queue.popleft()
+#         res.append(e.val)
+#         if e.left is not None:
+#             queue.append(e.left)
+#         if e.right is not None:
+#             queue.append(e.right)
+#     return res
+# print(level_order_traversal(five))
+def level_order_traversal(root):
     res = []
-    queue = deque([])
-    queue.append(node)
+    queue = deque()
+    queue.append(root)
     while len(queue) != 0:
-        e = queue.popleft()
-        res.append(e.val)
-        if e.left is not None:
-            queue.append(e.left)
-        if e.right is not None:
-            queue.append(e.right)
+        levelSize = len(queue)
+        level = []
+        for i in range(levelSize):
+            node = queue.popleft()
+            level.append(node.val)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        res.append(level[levelSize-1])
     return res
-print(level_order_traversal(five))
+
+

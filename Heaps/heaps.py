@@ -25,7 +25,7 @@ The smallest element is always at the root
 🔹 Key Properties
 Complete Binary Tree
 All levels filled except possibly last
-Last level filled left → right
+last level filled left → right
 Heap Property
 Max heap → parent ≥ children
 Min heap → parent ≤ children
@@ -75,5 +75,5 @@ For Almost complete Binary Tree
 Heap: [10, 5, 3, 2, 4]
 Index:  0   1  2  3  4
 index of leaf nodes : 2,3,4 or n//2 -> n-1
-index of leaf nodes : 0 -> (n//2)-1
+index of internal nodes : 0 -> (n//2)-1
 '''

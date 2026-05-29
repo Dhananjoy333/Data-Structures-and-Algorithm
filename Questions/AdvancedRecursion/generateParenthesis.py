@@ -2,7 +2,7 @@
 def parenthesis(num):
     res = []
     brackets = [""] * (num * 2)
-    def solve(ind,total,bracket):
+    def solve(ind,total,brackets):
         if ind >= len(brackets):
             if total == 0:
                 res.append("".join(brackets))

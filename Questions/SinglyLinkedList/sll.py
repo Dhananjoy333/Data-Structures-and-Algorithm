@@ -245,18 +245,30 @@ class SinglyLL:
     #         current.next = current.next.next 
 #-----------------------------optimal---------------------
 #in single pass
-    # def removeNthLast(self,val):
-    #     slow = self.head
-    #     fast = self.head
-    #     for _ in range(val):
-    #         fast = fast.next
-    #     if fast == None:
-    #         return self.head.next
-    #     while fast.next is not None:
-    #         slow = slow.next
-    #         fast = fast.next
-    #     slow.next = slow.next.next
-    #     return self.head
+    def removeNthLast(self, val):
+        slow = self.head
+        fast = self.head
+
+        # Move fast n steps ahead safely
+        for _ in range(val):
+            if fast is None:
+                return self.head
+            fast = fast.next
+
+        # If removing head
+        if fast is None:
+            self.head = self.head.next
+            return self.head
+
+        # Move both pointers
+        while fast.next is not None:
+            slow = slow.next
+            fast = fast.next
+
+        # Delete node
+        slow.next = slow.next.next
+
+        return self.head
               
 
 sll = SinglyLL()
@@ -270,7 +282,7 @@ sll.append(21)
 sll.append(15)
 sll.append(7)
 sll.traversal()
-sll.removeNthLast(14)
+sll.removeNthLast(9)
 sll.traversal()
 
         

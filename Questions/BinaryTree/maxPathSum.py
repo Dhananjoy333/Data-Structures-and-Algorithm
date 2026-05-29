@@ -1,4 +1,4 @@
-# Leetcode - 100: Find if a binary tree is balanced or not 
+#Leetcode-543 : Find the longest path in a binary tree (may or may not include root)
 class Node:
     def __init__(self,val):
         self.left = None
@@ -25,7 +25,7 @@ four.right = ten
 eight.left = one
 eight.right = six
 one.left = seven
-'''
+r'''
                                 5
                             /       \
                            3         4
@@ -36,20 +36,20 @@ one.left = seven
                                  /
                                  7
 '''
-def balancedTree(node):
-    if node is None:
-        return 0
-    leftHeight = balancedTree(node.left)
-    if leftHeight == -1:
-        return -1
-    rightHeight = balancedTree(node.right)
-    if rightHeight == -1:
-        return -1
-    if abs(leftHeight-rightHeight) > 1:
-        return -1
-    return 1 + max(leftHeight , rightHeight)
-ans = balancedTree(five)
-if ans < 0 :
-    print(False)
-else:
-    print(True)
+
+def maxPathSum(root):
+    maxi = float('-inf')
+    def dfs(node):
+        nonlocal maxi
+        if node is None:
+            return 0
+        leftSum = dfs(node.left)
+        if leftSum < 0:
+            leftSum = 0
+        rightSum = dfs(node.right)
+        if rightSum < 0:
+            rightSum = 0
+        maxi = max(maxi, leftSum + rightSum+node.val)
+        return node.val + max(leftSum, rightSum)
+    dfs(root)
+    return maxi

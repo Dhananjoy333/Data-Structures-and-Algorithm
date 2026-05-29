@@ -1,6 +1,6 @@
-#Leetcode-124 : A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
-# The path sum of a path is the sum of the node's values in the path.
-# Given the root of a binary tree, return the maximum path sum of any non-empty path.
+from collections import deque
+
+
 class Node:
     def __init__(self,val):
         self.left = None
@@ -38,15 +38,32 @@ r'''
                                  /
                                  7
 '''
-longest = 0
-def longestPath(node):
-    nonlocal longest
-    if node == None:
-        return 0
-    leftHeight = longestPath(node.left)
+def breadthFirst(root):
+    res = []
+    queue = deque()
+    queue.append(five)
+    while queue:
+        levelSize = len(queue)
+        level = []
+        for i in range(levelSize):
+            node = queue.popleft()
+            level.append(node.val)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        res.append(level[levelSize-1])
+    return res
 
-    rightHeight = longestPath(node.right)
-    longest = max(longest,leftHeight + rightHeight)
-    return 1 + max(longest,leftHeight + rightHeight)
-longestPath(five)
-print(longest)
+def reversePostorder(root):
+    def dfs(node,level,ans):
+        if node is None:
+            return
+        if len(ans) == level:
+            ans.append(node.val)
+        if node.right:
+            dfs(node.right,level+1,ans)
+        if node.left:
+            dfs(node.left,level+1,ans)
+    dfs(root,0,[])
+    
