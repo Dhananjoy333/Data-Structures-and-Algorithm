@@ -1,5 +1,4 @@
-
-#Q.Leetcode-904 : Fruit in basket, given two basket which can only take 1 type of fruit how many maximum fruit can both basket take
+# Q.Leetcode-904 : Fruit in basket, given two basket which can only take 1 type of fruit how many maximum fruit can both basket take
 #-------------------------brute---------------------
 # def Fbasket(arr):
 #     n = len(arr)

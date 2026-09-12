@@ -24,4 +24,4 @@ def upperBound(arr,target):
         else:
             left = mid + 1
     return ub
-print(upperBound([1,1,1,2,3,3,5,6,7,7,7,9,12,12,13],4))
+print(upperBound([1,1,1,2,3,3,5,6,7,7,7,9,12,12,13],7))
